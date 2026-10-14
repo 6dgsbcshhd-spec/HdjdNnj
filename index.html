@@ -9,7 +9,6 @@
 
   :root {
     --bg-1: #06040f;
-    --bg-2: #100826;
     --accent-1: #8b5cf6;
     --accent-2: #ec4899;
     --accent-3: #06b6d4;
@@ -92,10 +91,7 @@
     background: linear-gradient(135deg, rgba(255,255,255,0.4), transparent 60%);
     pointer-events: none;
   }
-  .brand-logo span {
-    position: relative; z-index: 1;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.35);
-  }
+  .brand-logo span { position: relative; z-index: 1; text-shadow: 0 1px 0 rgba(255,255,255,0.35); }
   @keyframes brandFloat {
     0%, 100% { transform: translateY(0) rotate(-1.5deg); }
     50% { transform: translateY(-5px) rotate(1.5deg); }
@@ -153,14 +149,10 @@
     margin: 0 auto;
     line-height: 1.6;
   }
-  .subtitle a {
-    color: var(--accent-2);
-    text-decoration: none;
-    font-weight: 600;
-  }
+  .subtitle a { color: var(--accent-2); text-decoration: none; font-weight: 600; }
   .subtitle a:hover { text-decoration: underline; }
 
-  /* ============ REEL (спиннер) ============ */
+  /* ============ REEL ============ */
   .reel-stage {
     position: relative;
     width: 100%;
@@ -181,8 +173,6 @@
     align-items: center;
     padding: 24px 0;
   }
-
-  /* боковые маски-затухания */
   .reel-stage::before,
   .reel-stage::after {
     content: '';
@@ -192,16 +182,9 @@
     z-index: 3;
     pointer-events: none;
   }
-  .reel-stage::before {
-    left: 0;
-    background: linear-gradient(90deg, #0a0620 0%, #0a0620 20%, transparent 100%);
-  }
-  .reel-stage::after {
-    right: 0;
-    background: linear-gradient(270deg, #0a0620 0%, #0a0620 20%, transparent 100%);
-  }
+  .reel-stage::before { left: 0; background: linear-gradient(90deg, #0a0620 0%, #0a0620 20%, transparent 100%); }
+  .reel-stage::after { right: 0; background: linear-gradient(270deg, #0a0620 0%, #0a0620 20%, transparent 100%); }
 
-  /* красная линия-указатель по центру */
   .reel-pointer {
     position: absolute;
     top: 0; bottom: 0;
@@ -210,9 +193,7 @@
     width: 3px;
     background: linear-gradient(180deg, transparent, #fbbf24 15%, #fbbf24 85%, transparent);
     z-index: 5;
-    box-shadow:
-      0 0 16px rgba(251, 191, 36, 0.9),
-      0 0 40px rgba(251, 191, 36, 0.6);
+    box-shadow: 0 0 16px rgba(251, 191, 36, 0.9), 0 0 40px rgba(251, 191, 36, 0.6);
     pointer-events: none;
   }
   .reel-pointer::before,
@@ -226,14 +207,8 @@
     border-right: 9px solid transparent;
     filter: drop-shadow(0 0 6px rgba(251,191,36,0.9));
   }
-  .reel-pointer::before {
-    top: -2px;
-    border-top: 14px solid #fbbf24;
-  }
-  .reel-pointer::after {
-    bottom: -2px;
-    border-bottom: 14px solid #fbbf24;
-  }
+  .reel-pointer::before { top: -2px; border-top: 14px solid #fbbf24; }
+  .reel-pointer::after { bottom: -2px; border-bottom: 14px solid #fbbf24; }
 
   .reel-track {
     display: flex;
@@ -257,12 +232,8 @@
     overflow: hidden;
     background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
     border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow:
-      0 4px 18px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    transition: transform 0.2s;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
-
   .reel-item::before {
     content: '';
     position: absolute;
@@ -271,9 +242,7 @@
     pointer-events: none;
     background: radial-gradient(circle at 50% 0%, var(--item-glow, rgba(139,92,246,0.5)), transparent 65%);
     opacity: 0.55;
-    transition: opacity 0.3s;
   }
-
   .reel-item .it-icon {
     font-size: 44px;
     line-height: 1;
@@ -281,7 +250,6 @@
     position: relative;
     z-index: 1;
   }
-
   .reel-item .it-name {
     font-size: 11px;
     font-weight: 800;
@@ -295,7 +263,6 @@
     text-shadow: 0 1px 3px rgba(0,0,0,0.8);
     max-width: 130px;
   }
-
   .reel-item .it-rarity {
     position: absolute;
     bottom: 8px;
@@ -316,7 +283,7 @@
     align-items: center;
     gap: 16px;
     width: 100%;
-    max-width: 420px;
+    max-width: 460px;
   }
 
   .spin-btn {
@@ -372,6 +339,129 @@
     font-variant-numeric: tabular-nums;
     font-weight: 700;
   }
+
+  /* Free spins badge */
+  .free-spins {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(236,72,153,0.15));
+    border: 1px solid rgba(251,191,36,0.4);
+    box-shadow: 0 0 24px rgba(251,191,36,0.25);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--gold);
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  .free-spins.show { display: inline-flex; }
+  .free-spins .fs-icon { font-size: 20px; }
+  .free-spins .fs-num {
+    font-size: 18px;
+    font-variant-numeric: tabular-nums;
+    background: linear-gradient(135deg, #fbbf24, #ec4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+  }
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 24px rgba(251,191,36,0.25); }
+    50% { box-shadow: 0 0 36px rgba(251,191,36,0.5); }
+  }
+
+  /* ============ PROMO ============ */
+  .promo-block {
+    width: 100%;
+    max-width: 460px;
+    margin-top: 28px;
+    padding: 20px;
+    border-radius: 20px;
+    background: linear-gradient(160deg, rgba(139,92,246,0.08), rgba(236,72,153,0.05));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .promo-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+  .promo-title .ic { font-size: 16px; }
+
+  .promo-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .promo-input {
+    flex: 1;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(0,0,0,0.35);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .promo-input::placeholder {
+    color: rgba(255,255,255,0.25);
+    font-weight: 500;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+  .promo-input:focus {
+    border-color: rgba(139,92,246,0.6);
+    box-shadow: 0 0 0 3px rgba(139,92,246,0.15);
+  }
+  .promo-input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .promo-btn {
+    padding: 14px 22px;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #0a0618;
+    background: linear-gradient(135deg, #a78bfa, #ec4899);
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
+    box-shadow: 0 6px 20px rgba(167,139,250,0.35);
+    white-space: nowrap;
+  }
+  .promo-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(167,139,250,0.5);
+  }
+  .promo-btn:active:not(:disabled) { transform: translateY(0) scale(0.98); }
+  .promo-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .promo-hint {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 10px;
+    text-align: center;
+    line-height: 1.5;
+    min-height: 18px;
+  }
+  .promo-hint.ok { color: #34d399; font-weight: 600; }
+  .promo-hint.err { color: #f87171; font-weight: 600; }
 
   /* ============ STATS ============ */
   .stats {
@@ -491,9 +581,7 @@
     padding: 36px 28px 28px;
     text-align: center;
     animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow:
-      0 30px 80px rgba(0,0,0,0.6),
-      0 0 100px rgba(139,92,246,0.3);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 100px rgba(139,92,246,0.3);
     overflow: hidden;
   }
   .modal::before {
@@ -541,6 +629,7 @@
     50% { transform: translateY(-8px); }
   }
   .modal .ico.sad { animation: none; filter: none; opacity: 0.85; }
+  .modal .ico.spin-ico { animation: spinSlow 2.5s linear infinite; filter: drop-shadow(0 0 30px rgba(251,191,36,0.8)); }
 
   .modal .rarity-tag {
     display: inline-block;
@@ -630,21 +719,11 @@
     justify-content: center;
     flex-wrap: wrap;
   }
-  footer a {
-    color: var(--accent-2);
-    text-decoration: none;
-    font-weight: 600;
-  }
+  footer a { color: var(--accent-2); text-decoration: none; font-weight: 600; }
   footer a:hover { text-decoration: underline; }
-
-  .footer-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
+  .footer-brand { display: inline-flex; align-items: center; gap: 6px; }
   .footer-brand .mini {
-    width: 22px;
-    height: 22px;
+    width: 22px; height: 22px;
     border-radius: 6px;
     display: inline-flex;
     align-items: center;
@@ -667,6 +746,7 @@
     .reel-item { flex: 0 0 120px; height: 130px; }
     .reel-item .it-icon { font-size: 34px; }
     .reel-item .it-name { font-size: 10px; max-width: 100px; }
+    .promo-row { flex-direction: column; }
   }
 </style>
 </head>
@@ -679,8 +759,8 @@
     <h1>Akselov Roulette</h1>
     <p class="subtitle">
       Крути раз в 3 дня и выбивай подарки от
-      <a href="https://t.me/akselovvv" target="_blank" rel="noopener">@akselovvv</a>:
-      Telegram Gifts, звёзды, Premium, теги и админка.
+      <a href="https://t.me/akselovvv" target="_blank" rel="noopener">@akselovvv</a>.
+      Есть промокод? Активируй его и получи бесплатные прокрутки.
     </p>
   </header>
 
@@ -690,8 +770,33 @@
   </div>
 
   <div class="controls">
+    <div class="free-spins" id="freeSpinsBadge">
+      <span class="fs-icon">🎟️</span>
+      <span>Свободных прокруток:</span>
+      <span class="fs-num" id="freeSpinsNum">0</span>
+    </div>
     <button class="spin-btn" id="spinBtn">Крутить рулетку</button>
     <div class="cooldown" id="cooldown"></div>
+  </div>
+
+  <div class="promo-block">
+    <div class="promo-title">
+      <span class="ic">🎟️</span>
+      <span>Активировать промокод</span>
+    </div>
+    <div class="promo-row">
+      <input
+        class="promo-input"
+        id="promoInput"
+        type="text"
+        placeholder="Введи промокод…"
+        autocomplete="off"
+        spellcheck="false"
+        maxlength="20"
+      />
+      <button class="promo-btn" id="promoBtn">Активировать</button>
+    </div>
+    <div class="promo-hint" id="promoHint">Каждый код активируется один раз и даёт от 1 до 5 бесплатных прокруток</div>
   </div>
 
   <div class="stats">
@@ -732,17 +837,17 @@
    ПРИЗЫ
    ========================================================= */
 const PRIZES = [
-  { id: 'akselov_gift', emoji: '🎁', name: 'Подарок от Акселова', title: 'ГЛАВНЫЙ ПРИЗ',       desc: 'Настоящий подарок от Акселова лично. Пиши в Telegram — обсудим и отправлю.', rarity: 'legendary', weight: 0.40, glow: 'rgba(251,191,36,0.55)', line: '#fbbf24', text: '#fed7aa', isWin: true },
-  { id: 'signa',        emoji: '💠', name: 'Сигна от Акселова',   title: 'Сигна твоя!',         desc: 'Личная сигна от Акселова. Пиши в Telegram — заберёшь.',                       rarity: 'legendary', weight: 0.25, glow: 'rgba(6,182,212,0.55)',  line: '#22d3ee', text: '#a5f3fc', isWin: true },
-  { id: 'premium',      emoji: '💎', name: 'Premium на месяц',    title: 'Telegram Premium!',   desc: 'Premium на 1 месяц — пиши @akselovvv, отправлю в ближайшее время.',            rarity: 'epic',      weight: 0.20, glow: 'rgba(139,92,246,0.55)', line: '#a78bfa', text: '#ddd6fe', isWin: true },
-  { id: 'bear',         emoji: '🧸', name: 'Мишка',               title: 'Мишка в студию!',     desc: 'Милый мишка от Акселова. Пиши в Telegram — передам подарок.',                 rarity: 'epic',      weight: 0.15, glow: 'rgba(217,119,6,0.5)',  line: '#f59e0b', text: '#fed7aa', isWin: true },
-  { id: 'rose',         emoji: '🌹', name: 'Роза',                title: 'Красная роза',        desc: 'Роза от Акселова — забирай через Telegram.',                                  rarity: 'rare',      weight: 0.15, glow: 'rgba(190,18,60,0.5)',  line: '#f43f5e', text: '#fecdd3', isWin: true },
-  { id: 'heart',        emoji: '❤️', name: 'Сердечко',            title: 'Сердечко тебе!',      desc: 'Сердечко от Акселова. Пиши в Telegram — заберёшь.',                           rarity: 'rare',      weight: 0.15, glow: 'rgba(225,29,72,0.5)',  line: '#fb7185', text: '#fecdd3', isWin: true },
-  { id: 'tag',          emoji: '🏷️', name: 'Тег в чате',          title: 'Красивый тег',        desc: 'Выдаю уникальный тег в чате раздач. Пиши @akselovvv — сделаем.',              rarity: 'uncommon',  weight: 0.10, glow: 'rgba(5,150,105,0.5)',  line: '#10b981', text: '#a7f3d0', isWin: true },
-  { id: 'admin',        emoji: '👑', name: 'Админка в группе',    title: 'Ты админ!',           desc: 'Выдаю админку в группе. Пиши в Telegram — настроим и выдадим.',               rarity: 'uncommon',  weight: 0.05, glow: 'rgba(29,78,216,0.5)',  line: '#3b82f6', text: '#bfdbfe', isWin: true },
-  { id: 'subscribe',    emoji: '📢', name: 'Подписка на ТГК',     title: 'Ты в клубе!',         desc: 'Подписка на канал Акселова. Пиши @akselovvv — добавлю.',                      rarity: 'uncommon',  weight: 0.05, glow: 'rgba(14,116,144,0.5)', line: '#0891b2', text: '#a5f3fc', isWin: true },
+  { id: 'akselov_gift', emoji: '🎁', name: 'Подарок от Акселова', title: 'ГЛАВНЫЙ ПРИЗ', desc: 'Настоящий подарок от Акселова лично. Пиши в Telegram — обсудим и отправлю.', rarity: 'legendary', weight: 0.40, glow: 'rgba(251,191,36,0.55)', line: '#fbbf24', text: '#fed7aa', isWin: true },
+  { id: 'signa',        emoji: '💠', name: 'Сигна от Акселова', title: 'Сигна твоя!', desc: 'Личная сигна от Акселова. Пиши в Telegram — заберёшь.', rarity: 'legendary', weight: 0.25, glow: 'rgba(6,182,212,0.55)', line: '#22d3ee', text: '#a5f3fc', isWin: true },
+  { id: 'premium',      emoji: '💎', name: 'Premium на месяц', title: 'Telegram Premium!', desc: 'Premium на 1 месяц — пиши @akselovvv, отправлю в ближайшее время.', rarity: 'epic', weight: 0.20, glow: 'rgba(139,92,246,0.55)', line: '#a78bfa', text: '#ddd6fe', isWin: true },
+  { id: 'bear',         emoji: '🧸', name: 'Мишка', title: 'Мишка в студию!', desc: 'Милый мишка от Акселова. Пиши в Telegram — передам подарок.', rarity: 'epic', weight: 0.15, glow: 'rgba(217,119,6,0.5)', line: '#f59e0b', text: '#fed7aa', isWin: true },
+  { id: 'rose',         emoji: '🌹', name: 'Роза', title: 'Красная роза', desc: 'Роза от Акселова — забирай через Telegram.', rarity: 'rare', weight: 0.15, glow: 'rgba(190,18,60,0.5)', line: '#f43f5e', text: '#fecdd3', isWin: true },
+  { id: 'heart',        emoji: '❤️', name: 'Сердечко', title: 'Сердечко тебе!', desc: 'Сердечко от Акселова. Пиши в Telegram — заберёшь.', rarity: 'rare', weight: 0.15, glow: 'rgba(225,29,72,0.5)', line: '#fb7185', text: '#fecdd3', isWin: true },
+  { id: 'tag',          emoji: '🏷️', name: 'Тег в чате', title: 'Красивый тег', desc: 'Выдаю уникальный тег в чате раздач. Пиши @akselovvv — сделаем.', rarity: 'uncommon', weight: 0.10, glow: 'rgba(5,150,105,0.5)', line: '#10b981', text: '#a7f3d0', isWin: true },
+  { id: 'admin',        emoji: '👑', name: 'Админка в группе', title: 'Ты админ!', desc: 'Выдаю админку в группе. Пиши в Telegram — настроим и выдадим.', rarity: 'uncommon', weight: 0.05, glow: 'rgba(29,78,216,0.5)', line: '#3b82f6', text: '#bfdbfe', isWin: true },
+  { id: 'subscribe',    emoji: '📢', name: 'Подписка на ТГК', title: 'Ты в клубе!', desc: 'Подписка на канал Акселова. Пиши @akselovvv — добавлю.', rarity: 'uncommon', weight: 0.05, glow: 'rgba(14,116,144,0.5)', line: '#0891b2', text: '#a5f3fc', isWin: true },
 
-  { id: 'nothing',      emoji: '🌫️', name: 'Ничего',              title: 'Повезёт в следующий раз', desc: 'Сегодня не твой день. Возвращайся через 3 дня — рулетка любит терпеливых.',    rarity: 'common',    weight: 98.5, glow: 'rgba(100,100,120,0.3)',line: '#52525b', text: '#a1a1aa', isWin: false },
+  { id: 'nothing',      emoji: '🌫️', name: 'Ничего', title: 'Повезёт в следующий раз', desc: 'Сегодня не твой день. Возвращайся через 3 дня — рулетка любит терпеливых.', rarity: 'common', weight: 98.5, glow: 'rgba(100,100,120,0.3)', line: '#52525b', text: '#a1a1aa', isWin: false },
 ];
 
 const RARITY_LABEL = {
@@ -753,32 +858,88 @@ const RARITY_LABEL = {
   legendary: 'ЛЕГЕНДАРНЫЙ',
 };
 
+/* =========================================================
+   ПРОМОКОДЫ
+   Максимум активаций на код — 10 (глобально, при наличии бэкенда).
+   В офлайн-режиме — 1 активация на код в браузере.
+   ========================================================= */
+const PROMO_CODES = [
+  'GIFT-X7K92','BEAR-4M8P1','NEO-9Q2L6','LUCKY-8T5R3','GOLD-K7N4X',
+  'STAR-2P9W5','VIP-6H3Z8','GIFT-5D2A9','TEDDY-Q8M4K','BONUS-7X1P6',
+  'MEGA-3R9T2','HAPPY-K5W8N','DROP-4Z7L1','NEXO-9B2F5','PRIZE-6M8Q3',
+  'LUCK-1T4X7','BEAR-8K2N9','GOLD-5P3R6','STAR-7W9D2','VIP-4L6H8',
+  'GIFT-A9X3M','TEDDY-2K7Q5','BONUS-P4N8Z','NEO-6R1W9','MEGA-X3T7K',
+  'HAPPY-8M2L4','DROP-Q5Z9B','NEXO-1F6P8','PRIZE-T7K3R','LUCK-9W4H2',
+  'BEAR-M6X1Q','GOLD-2Z8P5','STAR-K4R7N','VIP-3Q9L6','GIFT-7H2W8',
+  'TEDDY-5X9M1','BONUS-8R3K6','NEO-P2L7Z','MEGA-4N8Q1','HAPPY-6T3X9',
+  'DROP-7M2K5','NEXO-B9R4W','PRIZE-3X6P8','LUCK-5Q1N7','BEAR-9L4T2',
+  'GOLD-W8K3M','STAR-6P2Z9','VIP-N4X7Q','GIFT-1R8M5','TEDDY-Z3K9P',
+  'BONUS-2W7L4','NEO-8Q5T1','MEGA-K9M3X','HAPPY-4P7R2','DROP-6Z1N8',
+  'NEXO-T5W9K','PRIZE-2L8Q4','LUCK-X7M3P','BEAR-5N9R1','GOLD-4K2Z8',
+  'STAR-9T6W3','VIP-1P5X7','GIFT-Q4M8L','TEDDY-7R2N6','BONUS-9X3K5',
+  'NEO-4W8P1','MEGA-6L2T9','HAPPY-Z5Q7M','DROP-3K9R4','NEXO-8P1X6',
+  'PRIZE-W2M7Q','LUCK-4T9N3','BEAR-X6K2P','GOLD-7R1M8','STAR-5Q3L9',
+  'VIP-8N4W2','GIFT-2Z7P5','TEDDY-M9R4X','BONUS-6K1T8','NEO-3P5W9',
+  'MEGA-7Q2N4','HAPPY-X8L3K','DROP-1M6R9','NEXO-5T2Z7','PRIZE-9K4P1',
+  'LUCK-8W3X6','BEAR-2R7M5','GOLD-Q6N1T','STAR-4X9K2','VIP-7P3L8',
+  'GIFT-5M1Q9','TEDDY-8Z4R2','BONUS-3T7X6','NEO-K2W9P','MEGA-1L5R8',
+  'HAPPY-9Q4M2','DROP-X6P3T','NEXO-7R1K5','PRIZE-4W8N2','LUCK-6Z3M9',
+];
+
+const PROMO_MAX_ACTIVATIONS = 10; // глобальный лимит на код (см. примечание про бэкенд)
+
 const TG_LINK = 'https://t.me/akselovvv';
 const COOLDOWN_MS = 3 * 24 * 60 * 60 * 1000;
-const LS_KEY = 'akselov_roulette_v3';
+const LS_KEY = 'akselov_roulette_v4';
 
 /* =========================
    STATE
    ========================= */
 let state = loadState();
+
 function loadState() {
   try {
     const raw = localStorage.getItem(LS_KEY);
-    if (raw) return JSON.parse(raw);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      return {
+        lastSpin: 0,
+        spins: 0,
+        wins: 0,
+        bestPrizeId: null,
+        bestRarityRank: -1,
+        freeSpins: 0,
+        usedCodes: [],
+        codeUses: {},
+        ...parsed,
+      };
+    }
   } catch {}
-  return { lastSpin: 0, spins: 0, wins: 0, bestPrizeId: null, bestRarityRank: -1 };
+  return {
+    lastSpin: 0,
+    spins: 0,
+    wins: 0,
+    bestPrizeId: null,
+    bestRarityRank: -1,
+    freeSpins: 0,
+    usedCodes: [],
+    codeUses: {},
+  };
 }
-function saveState() { localStorage.setItem(LS_KEY, JSON.stringify(state)); }
+
+function saveState() {
+  localStorage.setItem(LS_KEY, JSON.stringify(state));
+}
 
 /* =========================
    REEL
    ========================= */
 const reelTrack = document.getElementById('reelTrack');
-const ITEM_W = 150;      // ширина карточки
-const ITEM_GAP = 14;     // gap между карточками
+const ITEM_W = 150;
+const ITEM_GAP = 14;
 const ITEM_TOTAL = ITEM_W + ITEM_GAP;
-const REEL_LENGTH = 60;  // сколько карточек в ленте
-const WINNER_POS = 55;   // позиция выигрышной карточки в ленте
+const REEL_LENGTH = 60;
+const WINNER_POS = 55;
 
 function buildReelItem(prize) {
   const el = document.createElement('div');
@@ -807,13 +968,7 @@ function pickPrizeIndex() {
 function buildReel(winnerIdx) {
   reelTrack.innerHTML = '';
   for (let i = 0; i < REEL_LENGTH; i++) {
-    let idx;
-    if (i === WINNER_POS) {
-      idx = winnerIdx;
-    } else {
-      // Фон — визуальный микс призов и "ничего"
-      idx = Math.floor(Math.random() * PRIZES.length);
-    }
+    const idx = i === WINNER_POS ? winnerIdx : Math.floor(Math.random() * PRIZES.length);
     reelTrack.appendChild(buildReelItem(PRIZES[idx]));
   }
 }
@@ -824,30 +979,34 @@ function buildReel(winnerIdx) {
 let spinning = false;
 const spinBtn = document.getElementById('spinBtn');
 const cooldownEl = document.getElementById('cooldown');
+const freeSpinsBadge = document.getElementById('freeSpinsBadge');
+const freeSpinsNum = document.getElementById('freeSpinsNum');
+
+function canSpin() {
+  if (spinning) return false;
+  if (state.freeSpins > 0) return true;
+  return Date.now() - state.lastSpin >= COOLDOWN_MS;
+}
 
 function spin() {
-  if (spinning) return;
-  const now = Date.now();
-  if (now - state.lastSpin < COOLDOWN_MS) return;
+  if (!canSpin()) return;
 
   spinning = true;
   spinBtn.disabled = true;
 
+  const usingFreeSpin = state.freeSpins > 0;
   const idx = pickPrizeIndex();
   buildReel(idx);
 
-  // Сбросим позицию без анимации
   reelTrack.style.transition = 'none';
   reelTrack.style.transform = 'translateX(0)';
 
-  // Дать браузеру применить, затем — плавная анимация
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       const stage = reelTrack.parentElement;
       const stageW = stage.clientWidth;
       const center = stageW / 2;
       const winnerCenter = WINNER_POS * ITEM_TOTAL + ITEM_W / 2;
-      // Небольшой случайный сдвиг в пределах ±25px, чтобы не всегда идеально в центр
       const jitter = (Math.random() - 0.5) * 50;
       const target = -(winnerCenter - center + jitter);
 
@@ -856,16 +1015,21 @@ function spin() {
 
       setTimeout(() => {
         spinning = false;
-        onResult(idx);
+        onResult(idx, usingFreeSpin);
       }, 7100);
     });
   });
 }
 
-function onResult(idx) {
+function onResult(idx, usedFreeSpin) {
   const prize = PRIZES[idx];
 
-  state.lastSpin = Date.now();
+  if (usedFreeSpin) {
+    state.freeSpins -= 1;
+  } else {
+    state.lastSpin = Date.now();
+  }
+
   state.spins += 1;
 
   const rarityRank = { common: 0, uncommon: 1, rare: 2, epic: 3, legendary: 4 }[prize.rarity];
@@ -919,8 +1083,32 @@ function showModal(prize) {
   `;
 
   overlay.classList.add('show');
-
   if (prize.isWin) spawnConfetti(prize.rarity);
+}
+
+function showPromoModal(code, spins) {
+  modal.innerHTML = `
+    <div class="mini-brand">Аа</div>
+    <div class="ico spin-ico">🎟️</div>
+    <div class="rarity-tag" style="color:#a78bfa;">ПРОМОКОД АКТИВИРОВАН</div>
+    <h3>+${spins} ${spins === 1 ? 'прокрутка' : spins < 5 ? 'прокрутки' : 'прокруток'}!</h3>
+    <p>Код <strong style="color:#fbbf24;">${code}</strong> успешно активирован. Крути прямо сейчас — бесплатные прокрутки не сгорают.</p>
+    <button class="btn btn-primary" onclick="closeModal()">Крутить!</button>
+  `;
+  overlay.classList.add('show');
+  spawnConfetti('epic');
+}
+
+function showPromoError(msg) {
+  modal.innerHTML = `
+    <div class="mini-brand">Аа</div>
+    <div class="ico sad">❌</div>
+    <div class="rarity-tag" style="color:#f87171;">ОШИБКА</div>
+    <h3>Не получилось</h3>
+    <p>${msg}</p>
+    <button class="btn btn-secondary" onclick="closeModal()">Понятно</button>
+  `;
+  overlay.classList.add('show');
 }
 
 function spawnConfetti(rarity) {
@@ -947,7 +1135,87 @@ overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
 /* =========================
-   COOLDOWN
+   PROMO CODES
+   ========================= */
+const promoInput = document.getElementById('promoInput');
+const promoBtn = document.getElementById('promoBtn');
+const promoHint = document.getElementById('promoHint');
+
+function normalizeCode(s) {
+  return s.trim().toUpperCase().replace(/\s+/g, '');
+}
+
+function setHint(text, type = '') {
+  promoHint.textContent = text;
+  promoHint.className = 'promo-hint' + (type ? ' ' + type : '');
+}
+
+async function activatePromo() {
+  const raw = promoInput.value;
+  const code = normalizeCode(raw);
+
+  if (!code) {
+    setHint('Введи промокод', 'err');
+    return;
+  }
+
+  promoBtn.disabled = true;
+  setHint('Проверяем…');
+
+  // Небольшая задержка для "реалистичности"
+  await new Promise((r) => setTimeout(r, 400));
+
+  // 1. Код существует?
+  if (!PROMO_CODES.includes(code)) {
+    setHint('Такого промокода нет', 'err');
+    showPromoError('Промокод не найден. Проверь, нет ли опечатки.');
+    promoBtn.disabled = false;
+    return;
+  }
+
+  // 2. Уже использован этим браузером?
+  if (state.usedCodes.includes(code)) {
+    setHint('Этот промокод уже активирован', 'err');
+    showPromoError('Ты уже активировал этот промокод. Один код — один раз.');
+    promoBtn.disabled = false;
+    return;
+  }
+
+  // 3. Достигнут лимит глобальных активаций?
+  //    (в офлайне считается локально; при подключении бэкенда — проверка на сервере)
+  const uses = state.codeUses[code] || 0;
+  if (uses >= PROMO_MAX_ACTIVATIONS) {
+    setHint('Лимит активаций этого кода исчерпан', 'err');
+    showPromoError('Промокод больше не активен — исчерпан лимит активаций. Ищи новый!');
+    promoBtn.disabled = false;
+    return;
+  }
+
+  // 4. Успех! Рандом 1–5 бесплатных прокруток
+  const spins = 1 + Math.floor(Math.random() * 5); // 1..5
+
+  state.usedCodes.push(code);
+  state.codeUses[code] = uses + 1;
+  state.freeSpins += spins;
+
+  saveState();
+  renderCooldown();
+  renderStats();
+
+  promoInput.value = '';
+  setHint(`+${spins} ${spins === 1 ? 'прокрутка' : 'прокрутки'}!`, 'ok');
+  showPromoModal(code, spins);
+
+  promoBtn.disabled = false;
+}
+
+promoBtn.addEventListener('click', activatePromo);
+promoInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') activatePromo();
+});
+
+/* =========================
+   COOLDOWN / FREE SPINS
    ========================= */
 function formatCooldown(ms) {
   const totalSec = Math.floor(ms / 1000);
@@ -964,8 +1232,23 @@ function formatCooldown(ms) {
 }
 
 function renderCooldown() {
+  // Бейдж бесплатных прокруток
+  if (state.freeSpins > 0) {
+    freeSpinsBadge.classList.add('show');
+    freeSpinsNum.textContent = state.freeSpins;
+  } else {
+    freeSpinsBadge.classList.remove('show');
+  }
+
+  if (spinning) return;
+
   const left = COOLDOWN_MS - (Date.now() - state.lastSpin);
-  if (left > 0) {
+
+  if (state.freeSpins > 0) {
+    spinBtn.disabled = false;
+    spinBtn.textContent = `Крутить (${state.freeSpins} бесплатно)`;
+    cooldownEl.innerHTML = `У тебя есть <strong>${state.freeSpins}</strong> бесплатных прокруток — кулдаун не действует`;
+  } else if (left > 0) {
     spinBtn.disabled = true;
     spinBtn.textContent = 'Подожди…';
     cooldownEl.innerHTML = `Следующая крутка через <strong>${formatCooldown(left)}</strong>`;
@@ -975,6 +1258,7 @@ function renderCooldown() {
     cooldownEl.innerHTML = `Рулетка доступна! Крути и забирай приз 🎁`;
   }
 }
+
 setInterval(renderCooldown, 1000);
 
 /* =========================
@@ -1018,9 +1302,7 @@ function renderPrizesList() {
 /* =========================
    INIT
    ========================= */
-// Заполним ленту нейтральным превью (без победителя)
 buildReel(0);
-// Сбросим позицию так, чтобы сразу было видно середину ленты
 reelTrack.style.transition = 'none';
 reelTrack.style.transform = 'translateX(-100px)';
 
@@ -1030,11 +1312,8 @@ renderCooldown();
 
 spinBtn.addEventListener('click', spin);
 
-// На случай ресайза — пересоберём позицию (без анимации)
 window.addEventListener('resize', () => {
-  if (!spinning) {
-    reelTrack.style.transition = 'none';
-  }
+  if (!spinning) reelTrack.style.transition = 'none';
 });
 </script>
 </body>
